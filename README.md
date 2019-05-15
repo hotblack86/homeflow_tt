@@ -28,3 +28,16 @@ the check digit of an ISBN-10 may be 'X' (representing '10'). For instance 3-598
 Bonus tasks
 ● Generate a valid ISBN-13 from the input ISBN-10 (and maybe verify it again with a derived
 verifier).
+
+    - - - - - 
+
+* Considerations
+
+Software should:-
+  - Check the string for separating dashes
+  - Check that the string has 9 digits with values from 0-9
+  - Check that the string has a check character with values from      0-9 or 'X'.
+
+  - Multiply consecutive digits in string by string.length,           string.length-1, string.length-2 and so on.
+  - Divide this total by 11.
+  - Return true if remainder is 0. Else return false.
