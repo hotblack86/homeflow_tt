@@ -25,9 +25,13 @@ class ISBN
     arr = convert.map!(&:to_i)
     counter = 10
     arr.each do |int|
-      @total += (int * counter)
+      @total += int * counter
       counter -= 1
     end
     @total
+  end
+
+  def validator
+    @total % 11 == 0 ? true : false
   end
 end

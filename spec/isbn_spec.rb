@@ -29,8 +29,13 @@ RSpec.describe ISBN do
     expect(isbn.convert).to eq(["3", "5", "9", "8", "2", "1", "5", "0", "8", "8"])
   end
 
-  it 'Calculates the total for ISBN formula' do
+  it 'Calculates the total for ISBN number with no x' do
     isbn = ISBN.new('3-598-21508-8')
     expect(isbn.sum_calculator).to eq(264)
+  end
+
+  it 'Validates the ISBN number' do
+    isbn = ISBN.new('3-598-21508-8')
+    expect(isbn.validator).to eq(true)
   end
 end
