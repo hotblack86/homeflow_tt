@@ -36,6 +36,7 @@ Considerations
 
 Software should:-
   - Check the string for separating dashes
+  - Check that the string is 10 digits long in total
   - Check that the string has 9 digits with values from 0-9
   - Check that the string has a check character with values from      0-9 or 'X'.
 
