@@ -4,4 +4,7 @@ class ISBN
     input
   end
 
+  def dash_remover(input)
+    input.gsub('-', '')
+  end
 end
