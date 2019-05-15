@@ -29,9 +29,10 @@ Bonus tasks
 ● Generate a valid ISBN-13 from the input ISBN-10 (and maybe verify it again with a derived
 verifier).
 
-    - - - - - 
 
-* Considerations
+
+
+Considerations
 
 Software should:-
   - Check the string for separating dashes
@@ -41,3 +42,7 @@ Software should:-
   - Multiply consecutive digits in string by string.length,           string.length-1, string.length-2 and so on.
   - Divide this total by 11.
   - Return true if remainder is 0. Else return false.
+
+
+Language: Ruby
+Testing Framework: Rspec
