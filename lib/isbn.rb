@@ -7,19 +7,11 @@ class ISBN
   end
 
   def dash_remover
-    if @input.include? '-'
-      @input.gsub!('-', '')
-    else
-      @input
-    end
+    (@input.include? "-") ? @input.gsub!('-', '') : @input
   end
 
   def is_ten_long?
     dash_remover
-    if @input.length == 10
-      return true
-    else
-      false
-    end
+    return @input.length == 10
   end  
 end
