@@ -40,7 +40,7 @@ Software should:-
   - Check that the string has 9 digits with values from 0-9
   - Check that the string has a check character with values from      0-9 or 'X'.
 
-  - Multiply consecutive digits in string by string.length,           string.length-1, string.length-2 and so on.
+  - Multiply consecutive digits in string by 10, 9, 8, 7 and so on.
   - Divide this total by 11.
   - Return true if remainder is 0. Else return false.
 

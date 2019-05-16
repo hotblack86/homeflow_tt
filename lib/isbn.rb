@@ -15,16 +15,21 @@ class ISBN
     dash_remover
     return @input.length == 10
   end
-  
-  def convert
+
+  def x_to_ten
     is_ten_long?
-    @input.split("")
+    @arr = @input.split("")
+    if @arr[9] === "X"
+      @arr[9] = "10"
+    end
+    @arr
   end
 
   def sum_calculator
-    arr = convert.map!(&:to_i)
+    x_to_ten
+    a = @arr.map!(&:to_i)
     counter = 10
-    arr.each do |int|
+    a.each do |int|
       @total += int * counter
       counter -= 1
     end

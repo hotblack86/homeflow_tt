@@ -24,18 +24,25 @@ RSpec.describe ISBN do
     expect(isbn3.is_ten_long?).to eq(false)
   end
 
-  it 'Converts checked string to array' do
-    isbn = ISBN.new('3-598-21508-8')
-    expect(isbn.convert).to eq(["3", "5", "9", "8", "2", "1", "5", "0", "8", "8"])
+  it 'Converts X to 10' do
+    isbn = ISBN.new('3-598-21508-X')
+    expect(isbn.x_to_ten).to eq(["3", "5", "9", "8", "2", "1", "5", "0", "8", "10"])
   end
 
-  it 'Calculates the total for ISBN number with no x' do
+  it 'Calculates the total for ISBN number with no X' do
     isbn = ISBN.new('3-598-21508-8')
     expect(isbn.sum_calculator).to eq(264)
   end
+
+  it 'Calculates the total for ISBN number with an X' do
+    isbn = ISBN.new('3-598-21508-X')
+    expect(isbn.sum_calculator).to eq(266)
+  end  
 
   it 'Validates the ISBN number' do
     isbn = ISBN.new('3-598-21508-8')
     expect(isbn.validator).to eq(true)
   end
+
+  
 end
