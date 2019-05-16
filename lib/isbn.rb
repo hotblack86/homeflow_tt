@@ -19,9 +19,7 @@ class ISBN
   def x_to_ten
     is_ten_long?
     @arr = @input.split("")
-    if @arr[9] === "X"
-      @arr[9] = "10"
-    end
+    @arr[-1] = "10" if @arr[-1] === "X"
     @arr
   end
 
@@ -37,6 +35,12 @@ class ISBN
   end
 
   def validator
+    sum_calculator
     @total % 11 == 0 ? true : false
   end
+
+private
+
+
+
 end
