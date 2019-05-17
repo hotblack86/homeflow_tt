@@ -7,6 +7,8 @@ RSpec.describe ISBN do
   let(:isbn_10_X) { ISBN.new('3-598-21508-X') }
   let(:isbn_12_dashed) { ISBN.new('3-598-21508-83-5') }
 
+  let(:isbn_10_to_13) { ISBN.new('1861972717') }
+
   
   it 'Removes any dashes from the string' do
     expect(isbn_10_dashed.dash_remover).to eq('3598215088')
@@ -22,21 +24,30 @@ RSpec.describe ISBN do
     expect(isbn_10_X.x_to_ten).to eq(["3", "5", "9", "8", "2", "1", "5", "0", "8", "10"])
   end
 
-  it 'Calculates the total for ISBN number with no X' do
-    expect(isbn_10_dashed.sum_calculator).to eq(264)
+  it 'Calculates the total for ISBN-10 number with no X' do
+    expect(isbn_10_dashed.isbn_10_sum_calculator).to eq(264)
   end
 
-  it 'Calculates the total for ISBN number with an X' do
-    expect(isbn_10_X.sum_calculator).to eq(266)
+  it 'Calculates the total for ISBN-10 number with an X' do
+    expect(isbn_10_X.isbn_10_sum_calculator).to eq(266)
   end  
 
-  it 'Returns true for Valid ISBN number' do
-    expect(isbn_10_dashed.validator).to eq(true)
+  it 'Returns true for Valid ISBN-10 number' do
+    expect(isbn_10_dashed.isbn_10_validator).to eq(true)
   end
 
-  it 'Returns false for invalid ISBN number' do
-    expect(isbn_12_dashed.validator).to eq(false)
-    expect(isbn_10_X.validator).to eq(false)
+  it 'Returns false for invalid ISBN-10 number' do
+    expect(isbn_12_dashed.isbn_10_validator).to eq(false)
+    expect(isbn_10_X.isbn_10_validator).to eq(false)
   end
 
+  it 'Prepends 978 and removes final digit of string' do
+    expect(isbn_10_to_13.isbn_13_parser).to eq('978186197271')
+  end
+
+  it 'Calculates the total for ISBN-13 number with no dashes or x' do
+    expect(isbn_10_to_13.isbn_13_calculator).to eq(118)
+  end
+
+  
 end

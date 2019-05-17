@@ -1,10 +1,11 @@
 class ISBN
 
-  attr_reader :input, :total
+  attr_reader :input, :total_10, :total_13
 
   def initialize(input)
     @input = input
-    @total = 0
+    @total_10 = 0
+    @total_13 = 0
   end
 
   def dash_remover
@@ -23,21 +24,42 @@ class ISBN
     @arr
   end
 
-  def sum_calculator
+  def isbn_10_sum_calculator
     x_to_ten
     a = @arr.map!(&:to_i)
     counter = 10
     a.each do |int|
-      @total += int * counter
+      @total_10 += int * counter
       counter -= 1
     end
-    @total
+    @total_10
   end
 
-  def validator
-    sum_calculator
-    @total % 11 == 0 ? true : false
+  def isbn_10_validator
+    isbn_10_sum_calculator
+    @total_10 % 11 == 0 ? true : false
   end
+
+  def isbn_13_parser
+    @input.prepend("978").slice!(-1)
+    @input
+  end
+
+  def isbn_13_calculator
+    isbn_13_parser
+    @arr = @input.split("")
+    a = @arr.map!(&:to_i)
+    counter = 1
+    a.each do |int|
+      if counter % 2 == 1
+        @total_13 += int * 1
+      else 
+        @total_13 += int * 3
+      end
+      counter += 1
+    end
+    @total_13
+  end  
 
 private
 
