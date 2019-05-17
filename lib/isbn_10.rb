@@ -9,16 +9,16 @@ class ISBN10
   end
 
   def dash_remover
-    (@input.include? "-") ? @input.gsub!('-', '') : @input
+    @input.include?("-") ? @input.gsub!('-', '') : @input
   end
 
   def is_ten_long?
     dash_remover
-    return @input.length == 10
+    @input.length == 10
   end
 
   def x_to_ten
-    is_ten_long?
+    dash_remover
     @arr = @input.split("")
     @arr[-1] = "10" if @arr[-1] === "X"
     @arr
