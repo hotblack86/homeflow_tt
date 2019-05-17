@@ -40,22 +40,21 @@ class ISBN
     @total_10 % 11 == 0 ? true : false
   end
 
+
+
+
   def isbn_13_parser
+    dash_remover
     @input.prepend("978").slice!(-1)
     @input
   end
 
   def isbn_13_calculator
     isbn_13_parser
-    @arr = @input.split("")
-    a = @arr.map!(&:to_i)
+    arr = @input.split("").map!(&:to_i)
     counter = 1
-    a.each do |int|
-      if counter % 2 == 1
-        @total_13 += int * 1
-      else 
-        @total_13 += int * 3
-      end
+    arr.each do |int|
+      counter % 2 == 1 ? @total_13 += int * 1 : @total_13 += int * 3
       counter += 1
     end
     @total_13
@@ -63,8 +62,7 @@ class ISBN
   
   def isbn_13_generator
     isbn_13_calculator
-    mod = @total_13 % 10
-    check = 10 - mod
+    check = 10 - (@total_13 % 10)
     @input + check.to_s
   end
 
