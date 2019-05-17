@@ -1,4 +1,4 @@
-require './lib/isbn-10.rb'
+require './lib/isbn_10.rb'
 
 class ISBN13
 

@@ -1,7 +1,7 @@
-require 'isbn-13.rb'
+
+require 'isbn_13.rb'
 
 RSpec.describe ISBN13 do
-
   let(:isbn_13) { ISBN13.new('1861972717') }
   let(:isbn_13_dashed) { ISBN13.new('1-861-97271-7') }
 
@@ -21,5 +21,4 @@ RSpec.describe ISBN13 do
       expect(isbn_13_dashed.isbn_13_generator).to eq('9781861972712')
     end
   end
-
 end
