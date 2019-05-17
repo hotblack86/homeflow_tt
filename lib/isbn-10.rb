@@ -1,4 +1,4 @@
-class ISBN
+class ISBN10
 
   attr_reader :input, :total_10, :total_13
 
@@ -39,35 +39,5 @@ class ISBN
     isbn_10_sum_calculator
     @total_10 % 11 == 0 ? true : false
   end
-
-
-
-
-  def isbn_13_parser
-    is_ten_long?
-    @input.prepend("978").slice!(-1)
-    @input
-  end
-
-  def isbn_13_calculator
-    isbn_13_parser
-    arr = @input.split("").map!(&:to_i)
-    counter = 1
-    arr.each do |int|
-      counter % 2 == 1 ? @total_13 += int * 1 : @total_13 += int * 3
-      counter += 1
-    end
-    @total_13
-  end
-  
-  def isbn_13_generator
-    isbn_13_calculator
-    check = 10 - (@total_13 % 10)
-    @input + check.to_s
-  end
-
-private
-
-
 
 end
