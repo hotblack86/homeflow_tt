@@ -59,7 +59,14 @@ class ISBN
       counter += 1
     end
     @total_13
-  end  
+  end
+  
+  def isbn_13_generator
+    isbn_13_calculator
+    mod = @total_13 % 10
+    check = 10 - mod
+    @input + check.to_s
+  end
 
 private
 

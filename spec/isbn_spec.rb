@@ -49,5 +49,8 @@ RSpec.describe ISBN do
     expect(isbn_10_to_13.isbn_13_calculator).to eq(118)
   end
 
-  
+  it 'Generates a valid ISBN-13 from the input ISBN-10 with no dashes or x' do
+    expect(isbn_10_to_13.isbn_13_generator).to eq('9781861972712')
+  end
+
 end
