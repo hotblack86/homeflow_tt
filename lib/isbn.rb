@@ -44,7 +44,7 @@ class ISBN
 
 
   def isbn_13_parser
-    dash_remover
+    is_ten_long?
     @input.prepend("978").slice!(-1)
     @input
   end
