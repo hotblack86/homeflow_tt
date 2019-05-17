@@ -55,5 +55,16 @@ Bonus Task:-
 
 
 
+Approach:-
+  - Used the specifications to draw the above considerations. 
+    Constructing user stories seemed unnecessary for this project.
+  - Used TDD to build the project in one class for the original       task. Refactored after every test pass where possible, to keep    methods skinny and code dry.
+  - Attempted the bonus task initially in the same class. This        worked fine but looked messy.
+  - I moved the tests for the bonus task over to a new file one 
+    by one and TDD'd a new class. This helped to reduce responsibility on the original class. The new class uses dependency injection to make use of methods from the original class.
+
+
+
+
 
 Testing Framework: Rspec
