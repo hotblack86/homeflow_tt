@@ -24,7 +24,7 @@ class ISBN10
     @arr
   end
 
-  def isbn_10_sum_calculator
+  def isbn_10_calculator
     x_to_ten
     a = @arr.map!(&:to_i)
     counter = 10
@@ -36,7 +36,7 @@ class ISBN10
   end
 
   def isbn_10_validator
-    isbn_10_sum_calculator
+    isbn_10_calculator
     @total_10 % 11 == 0 ? true : false
   end
 

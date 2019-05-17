@@ -39,11 +39,21 @@ Software should:-
   - Check that the string is 10 digits long in total
   - Check that the string has 9 digits with values from 0-9
   - Check that the string has a check character with values from      0-9 or 'X'.
-
   - Multiply consecutive digits in string by 10, 9, 8, 7 and so on.
   - Divide this total by 11.
   - Return true if remainder is 0. Else return false.
 
+Bonus Task:-
+  - Check the string for separating dashes
+  - Check that the string is 10 digits long in total
+  - Remove the final digit
+  - Prepend 978 to the string
+  - Multiply odd indexed digits by 1 and even indexed digits by 3.
+  - Divide this total by 10 and get the remainder.
+  - Subtract the remainder from 10 and add the answer on to the end 
+    of the parsed string to give a valid ISBN-13 number.
 
-Language: Ruby
+
+
+
 Testing Framework: Rspec

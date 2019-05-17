@@ -29,8 +29,8 @@ class ISBN13
 
   def isbn_13_generator
     isbn_13_calculator
-    check = 10 - (@total_13 % 10)
-    @input + check.to_s
+    check_digit = 10 - (@total_13 % 10)
+    @input + check_digit.to_s
   end
 
 

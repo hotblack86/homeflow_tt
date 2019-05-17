@@ -23,11 +23,11 @@ RSpec.describe ISBN10 do
     end
 
     it 'Calculates the total for ISBN-10 number with no X' do
-      expect(isbn_10_dashed.isbn_10_sum_calculator).to eq(264)
+      expect(isbn_10_dashed.isbn_10_calculator).to eq(264)
     end
 
     it 'Calculates the total for ISBN-10 number with an X' do
-      expect(isbn_10_X.isbn_10_sum_calculator).to eq(266)
+      expect(isbn_10_X.isbn_10_calculator).to eq(266)
     end  
 
     it 'Returns true for Valid ISBN-10 number' do
