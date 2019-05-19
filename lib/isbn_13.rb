@@ -21,7 +21,6 @@ class ISBN13
     arr = @input.split("").map!(&:to_i)
     arr.each.with_index(1) do |int, index|
       index % 2 == 1 ? @total += int * 1 : @total += int * 3
-      index += 1
     end
     @total
   end
